@@ -1,0 +1,31 @@
+export interface DefaultTheme {
+  C0: string;
+  C1: string;
+  C2: string;
+  C3: string;
+  C4: string;
+  C5: string;
+  C6: string;
+  C7: string;
+  C8: string;
+  C9: string;
+  C10: string;
+  C11: string;
+  C12: string;
+  C13: string;
+  C14: string;
+  C15: string;
+  C16: string;
+  C17: string;
+  A0: string;
+  A1: string;
+  A2: string;
+  A3: string;
+  A4: string;
+  A5: string;
+  A6: string;
+  A7: string;
+  A8: string;
+  A9: string;
+  A10: string;
+}

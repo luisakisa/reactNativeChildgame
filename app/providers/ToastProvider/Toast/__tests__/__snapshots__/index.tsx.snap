@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`provider/ToastProvider/Toast/snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+      },
+      Object {
+        "zIndex": 999,
+      },
+      Object {
+        "height": 0,
+      },
+    ]
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Array [
+        Object {
+          "borderRadius": 12,
+          "bottom": 0,
+          "elevation": 5,
+          "left": 8,
+          "padding": 12,
+          "position": "absolute",
+          "right": 8,
+          "shadowColor": "black",
+          "shadowOffset": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shadowOpacity": 0.16,
+          "shadowRadius": 3.84,
+        },
+        Object {
+          "backgroundColor": "#788CF5",
+        },
+        Object {
+          "opacity": 0,
+          "transform": Array [
+            Object {
+              "scale": 0.7,
+            },
+          ],
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 15,
+            "fontWeight": "400",
+            "letterSpacing": -0.24,
+            "lineHeight": 20,
+          },
+          Object {
+            "color": "#FFFFFF",
+          },
+        ]
+      }
+    >
+      Toast
+    </Text>
+  </View>
+</View>
+`;

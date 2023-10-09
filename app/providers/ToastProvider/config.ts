@@ -1,0 +1,1 @@
+export const TOAST_LIFETIME_DURATION = 3000;

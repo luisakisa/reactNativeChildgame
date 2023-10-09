@@ -1,0 +1,35 @@
+import {DefaultTheme} from './type';
+
+const dark: DefaultTheme = {
+  C0: '#FFFFFF',
+  C1: '#000000',
+  C2: '#0C111E',
+  C3: '#EBEBF5',
+  C4: '#515E72',
+  C5: '#CC5050',
+  C6: '#6161C4',
+  C7: '#B54771',
+  C8: '#45B760',
+  C9: '#FFFFFF',
+  C10: '#0F0F10',
+  C11: '#000000',
+  C12: '#FFFFFF',
+  C13: 'rgba(255,255,255,0.1)',
+  C14: '#0C111E',
+  C15: '#6161C4',
+  C16: '#0F0F10',
+  C17: '#5300BB',
+  A0: '#FFFFFF',
+  A1: '#FFFFFF',
+  A2: '#000000',
+  A3: '#000000',
+  A4: '#FFFFFF',
+  A5: '#919191',
+  A6: '#1D1D1D',
+  A7: '#3BDB21',
+  A8: '#4B4B4B',
+  A9: '#3A3A3C',
+  A10: '#DADADA',
+};
+
+export default dark;

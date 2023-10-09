@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`provider/ToastProvider/snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+      },
+      Object {
+        "bottom": 24,
+      },
+    ]
+  }
+/>
+`;
