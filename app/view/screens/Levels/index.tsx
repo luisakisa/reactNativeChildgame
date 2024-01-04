@@ -55,9 +55,6 @@ export default function Levels({
         <MainHeader
           title={'Уровни'}
           onSettingsPress={() => navigation.navigate(NavigatorScreens.Settings)}
-          onInfoPress={function (): void {
-            throw new Error('Function not implemented.');
-          }}
           name={manager.playerData.name}
         />
       }
