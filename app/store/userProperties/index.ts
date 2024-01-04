@@ -1,11 +1,13 @@
 // @ts-ignore
 import {createSlice, nanoid, PayloadAction} from '@reduxjs/toolkit';
+import { ThemeName } from 'view/themes';
 
 export interface UserProperties {
   uuid: string;
   level: number;
   age: number | undefined;
   name: string | undefined;
+  theme: ThemeName;
 }
 
 const initialState: UserProperties = {
@@ -13,6 +15,7 @@ const initialState: UserProperties = {
   level: 1,
   age: undefined,
   name: undefined,
+  theme: ThemeName.light,
 } as UserProperties;
 
 export const userProperties = createSlice({

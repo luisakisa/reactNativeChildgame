@@ -3,6 +3,15 @@ export interface Level {
   commonColor?: boolean;
 }
 
+
+export enum ThemeName {
+  light = 'light',
+  dark = 'dark',
+  deepRose = 'deepRose',
+  aqua = 'aqua',
+  night = 'night',
+}
+
 export class Player {
   age: number;
   id: number;

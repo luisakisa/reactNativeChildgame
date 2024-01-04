@@ -4,6 +4,8 @@ enum ProjectNavigatorScreens {
   Players = 'players',
   EndGame = 'end',
   Levels = 'levels',
+  Appearance = 'appearance',
+  ChangeName = 'change name'
 }
 
 export const NavigatorScreens = {...ProjectNavigatorScreens};

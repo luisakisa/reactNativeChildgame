@@ -1,9 +1,5 @@
 import React, {
-  useCallback,
   useContext,
-  useEffect,
-  useMemo,
-  useState,
 } from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteProps} from 'navigator/routeProps';
@@ -14,10 +10,10 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import LevelCard from 'components/LevelCard';
 import MainHeader from 'components/MainHeader';
 import {AppThemeContext} from 'view/providers/AppTheme';
-import {countLevels} from '../../../model/levels';
-import {async_getPlayers as getPlayers} from '../../../model/players';
+import useManager from 'state/manager';
+import { countLevel } from 'domain/levels';
 
-const blankArrayOfLevels = Array(countLevels).fill(0);
+const blankArrayOfLevels = Array(countLevel).fill(0);
 
 interface Props {
   navigation: NativeStackNavigationProp<RouteProps, NavigatorScreens['Levels']>;
@@ -31,18 +27,8 @@ export default function Levels({
   const handleLevelPress = (level: number) => {
     navigation.navigate(NavigatorScreens.Game, {level});
   };
-  const [fetchedData, setFetchedData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      {
-        const player: any = await getPlayers();
-        setFetchedData(player[0]);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const manager = useManager();
 
   function renderItem({
     index,
@@ -72,7 +58,7 @@ export default function Levels({
           onInfoPress={function (): void {
             throw new Error('Function not implemented.');
           }}
-          name={fetchedData.name && fetchedData.name}
+          name={manager.playerData.name}
         />
       }
       renderItem={renderItem}

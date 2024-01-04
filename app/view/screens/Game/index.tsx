@@ -1,11 +1,6 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {View, Text, Alert, Dimensions} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import styles from './styles';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {RouteProp} from '@react-navigation/native';
@@ -20,8 +15,9 @@ import Circle from 'view/components/Circle';
 import Square from 'view/components/Square';
 import Triangle from 'view/components/Triangle';
 import LottieView from 'lottie-react-native';
-import {completeLevel, getData} from '../../../model/levels';
 import MainHeader from 'view/components/MainHeader';
+import useManager from 'state/manager';
+import { getLevelData } from 'domain/levels';
 
 interface Props {
   navigation: NativeStackNavigationProp<RouteProps, NavigatorScreens['Game']>;
@@ -34,7 +30,11 @@ export default function Game({
 }: Props): React.FunctionComponentElement<Props> {
   const safeAreaInsets = useSafeAreaInsets();
 
-  const level = getData(route.params.level);
+  const manager = useManager();
+
+  const currentLevel = manager.levelCurrentNumber
+
+  const level = getLevelData(route.params.level);
 
   const figures = level.figures;
 
@@ -64,7 +64,9 @@ export default function Game({
   // Проверка, были ли все фигуры правильно помещены в контуры
   useEffect(() => {
     if (circleCorrect && triangleCorrect && squareCorrect) {
-      completeLevel()
+      if (route.params.level < currentLevel) {
+        manager.completeLevel();
+      }
       setTimeout(() => {
         navigation.navigate(NavigatorScreens.EndGame, {sessionIndex: 5});
       }, 200);
@@ -80,10 +82,9 @@ export default function Game({
           y={initialPositions.circle.y}
           renderShape="circle"
           onDragRelease={({nativeEvent}) => {
-            // Проверка, была ли фигура помещена в правильный контур
             if (
-              nativeEvent.pageX >= 140 && // Замените эти значения на координаты контура
-              nativeEvent.pageX <= 245 && // ваших контуров
+              nativeEvent.pageX >= 140 && 
+              nativeEvent.pageX <= 245 && 
               nativeEvent.pageY >= 175 &&
               nativeEvent.pageY <= 290
             ) {
@@ -105,7 +106,6 @@ export default function Game({
           y={initialPositions.triangle.y}
           renderShape="triangle"
           onDragRelease={({nativeEvent}) => {
-            // Проверка, была ли фигура помещена в правильный контур
             if (
               nativeEvent.pageX >= 130 &&
               nativeEvent.pageX <= 255 &&
@@ -130,7 +130,6 @@ export default function Game({
           y={initialPositions.square.y}
           renderShape="square"
           onDragRelease={({nativeEvent}) => {
-            // Проверка, была ли фигура помещена в правильный контур
             if (
               nativeEvent.pageX >= 135 &&
               nativeEvent.pageX <= 255 &&

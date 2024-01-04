@@ -6,4 +6,7 @@ export interface RouteProps {
   [NavigatorScreens.Game]: {level: number};
   [NavigatorScreens.EndGame]: {sessionIndex: number};
   [NavigatorScreens.Levels]: undefined;
+  [NavigatorScreens.Appearance]: undefined;
+  [NavigatorScreens.Settings]: undefined;
+  [NavigatorScreens.ChangeName]: undefined;
 }
